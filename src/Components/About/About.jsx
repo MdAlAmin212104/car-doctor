@@ -9,9 +9,9 @@ const About = () => {
                   <div className="hero-content items-start flex-col lg:flex-row">
                         <div className='lg:w-1/2 relative'>
                               <img src={person} className="w-3/4 rounded-lg shadow-2xl" />
-                              <img src={parts} className="w-1/2 absolute right-5 top-1/2 rounded-lg shadow-2xl border-[10px] border-white" />
+                              <img src={parts} className="w-1/2 absolute right-5 top-1/2 rounded-lg shadow-2xl border-[10px] border-white lg:h-[300px]" />
                         </div>
-                        <div className='lg:w-1/2'>
+                        <div className='lg:w-1/2 lg:pt-0 sm:pt-8'>
                               <h1 className="text-xl font-semibold text-[#FF3811]">About Us</h1>
                               <h1 className="text-5xl font-bold pt-4">We are qualified <br /> & of experience <br /> in this field</h1>
                               <p className="py-6">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
