@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Register = () => {
 
-      const {createUser} = useContext(AuthContext)
+      const {createUser, updateUser} = useContext(AuthContext)
       
       const handleLogin = e => {
             e.preventDefault();
@@ -16,7 +16,11 @@ const Register = () => {
             console.log(email, password);
             createUser(email, password)
                   .then(res => {
-                        console.log(res.user);
+                        updateUser(name)
+                              .then(res => {
+                                    alert('user created successfully')
+                              })
+                              .catch(err => alert(err.message));
                   })
                   .catch(err => console.error(err));
 
@@ -34,7 +38,7 @@ const Register = () => {
                                           <label className="label">
                                                 <span className="label-text">Name</span>
                                           </label>
-                                          <input type="email" name='name' placeholder="Your Name" className="input input-bordered" required />
+                                          <input type="text" name='name' placeholder="Your Name" className="input input-bordered" required />
                                     </div>
                                     <div className="form-control">
                                           <label className="label">
