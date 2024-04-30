@@ -58,6 +58,11 @@ const AuthProvider = ({ children }) => {
       }
 
 
+      if (loading) {
+            return <span className="loading loading-spinner loading-md"></span>
+      }
+
+
 
       return (
             <AuthContext.Provider value={authInfo}>
