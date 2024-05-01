@@ -7,6 +7,7 @@ import About from "../Components/About/About";
 import Blog from "../pages/Blog/Blog";
 import Contact from "../pages/Contact/Contact";
 import Services from "../Components/Services/Services";
+import CheckOut from "../pages/CheckOut/CheckOut";
 
 
 
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
                   {
                         path: '/register',
                         element: <Register/>
+                  },
+                  {
+                        path: '/checkout/:id',
+                        element: <CheckOut />,
+                        loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
                   }
                   
             

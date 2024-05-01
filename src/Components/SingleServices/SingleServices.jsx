@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import arrow from '../../assets/icons/arrow.svg'
 
 const SingleServices = ({ services }) => {
-      const { title, img, price } = services;
+      const { _id, title, img, price } = services;
       return (
             <div className="card w-96 bg-base-100 shadow-xl">
                   <figure className="px-10 pt-10">
@@ -12,7 +13,9 @@ const SingleServices = ({ services }) => {
                         <h2 className="card-title">{title}</h2>
                         <div className='flex'>
                               <p className='text-[#FF3811]'>Price :${price}</p>
-                              <img src={arrow} className='w-4' alt="" />
+                              <Link to={`/checkout/${_id}`}>
+                                    <img src={arrow} className='w-4' alt="" />
+                              </Link>
 
                         </div>
                         
