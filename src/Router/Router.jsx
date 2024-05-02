@@ -8,6 +8,7 @@ import Blog from "../pages/Blog/Blog";
 import Contact from "../pages/Contact/Contact";
 import Services from "../Components/Services/Services";
 import CheckOut from "../pages/CheckOut/CheckOut";
+import BookingList from "../pages/BookingList/BookingList";
 
 
 
@@ -18,36 +19,40 @@ const router = createBrowserRouter([
             children: [
                   {
                         path: '/',
-                        element: <Home/>,
+                        element: <Home />,
                   },
                   {
                         path: '/about',
-                        element: <About/>
+                        element: <About />
                   },
                   {
                         path: '/services',
-                        element : <Services/>
+                        element: <Services />
                   },
                   {
                         path: '/blog',
-                        element : <Blog/> 
+                        element: <Blog />
                   },
                   {
                         path: '/contact',
-                        element: <Contact/>
+                        element: <Contact />
                   },
                   {
                         path: '/login',
-                        element: <Login/>
+                        element: <Login />
                   },
                   {
                         path: '/register',
-                        element: <Register/>
+                        element: <Register />
                   },
                   {
                         path: '/checkout/:id',
                         element: <CheckOut />,
-                        loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+                        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                  },
+                  {
+                        path: '/bookings',
+                        element: <BookingList/>
                   }
                   
             
