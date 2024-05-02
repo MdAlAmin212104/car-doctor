@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const CheckOut = () => {
+      const { user } = useContext(AuthContext)
       const service = useLoaderData();
-      const { price } = service;
+      const { price, _id, title, img } = service;
       //console.log(service);
 
 
@@ -11,10 +13,33 @@ const CheckOut = () => {
             e.preventDefault();
             const form = e.target
             const name = form.name.value;
-            const email = form.email.value;
+            const email = user?.email || form.email.value;
             const date = form.date.value;
-            console.log(name, email, date);
-            console.log("object");
+            const booking = {
+                  serviceId : _id,
+                  CustomerName: name,
+                  serviceName : title,
+                  email,
+                  img,
+                  date,
+                  price,
+            }
+            
+            fetch('http://localhost:5000/bookings', {
+                  method: 'POST',
+                  headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                  },
+                  body: JSON.stringify(booking),
+            })
+                  .then(response => response.json())
+                  .then(data => {
+                        if (data.insertedId) {
+                              alert('data stored successfully');
+                              form.reset();
+                        };
+                  })
+            
       }
 
 
@@ -43,7 +68,7 @@ const CheckOut = () => {
                                     <label className="label">
                                           <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                                    <input type="email" name='email' defaultValue= {user?.email} className="input input-bordered" />
                               </div>
                               <div className="form-control">
                                     <label className="label">

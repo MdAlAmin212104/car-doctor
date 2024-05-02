@@ -14,6 +14,7 @@ const Navbar = () => {
             <li><NavLink to='/services'>Services</NavLink></li>
             <li><NavLink to='/blog'>Blog</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
+            
       
       </>
 
@@ -44,7 +45,12 @@ const Navbar = () => {
                         </ul>
                   </div>
                   <div className="navbar-end">
-                       <button onClick={handleLogOut} className="btn btn-outline btn-warning">Appointment</button>
+                        {
+                              user ? 
+                                    <li onClick={handleLogOut} className='btn mr-4'>logout</li>:
+                                    <li><NavLink to='/login' className='btn mr-4'>login</NavLink></li>
+                        }
+                       <button className="btn btn-outline btn-warning">Appointment</button>
                   </div>
             </div>
       );
