@@ -13,7 +13,6 @@ const BookingList = () => {
             fetch(url)
             .then(res => res.json())
             .then(data => {
-                  console.log(data);
                   setBooking(data);
             })
       }, [user])
@@ -52,7 +51,6 @@ const BookingList = () => {
 
 
       const handleUpdate = id => {
-            console.log("object update", id);
             Swal.fire({
                   title: "Are you sure?",
                   text: "You Update this is file!",

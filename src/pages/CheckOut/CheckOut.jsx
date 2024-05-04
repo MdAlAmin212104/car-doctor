@@ -6,7 +6,6 @@ const CheckOut = () => {
       const { user } = useContext(AuthContext)
       const service = useLoaderData();
       const { price, _id, title, img } = service;
-      //console.log(service);
 
 
       const handleSubmit = (e) => {

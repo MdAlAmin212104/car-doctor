@@ -18,7 +18,6 @@ const Navbar = () => {
       
       </>
 
-      console.log(user);
 
 
       const handleLogOut = () => {
